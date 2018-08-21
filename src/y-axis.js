@@ -119,6 +119,7 @@ class YAxis extends PureComponent {
                                 // causes rendering issues
                                 height > 0 &&
                                 ticks.map((value, index) => {
+                                    const ylen = ticks.length === 1 ? 30 : y(value);
                                     return (
                                         <SVGText
                                             originY={ y(value) }
@@ -127,7 +128,7 @@ class YAxis extends PureComponent {
                                             alignmentBaseline={ 'middle' }
                                             { ...svg }
                                             key={ index }
-                                            y={ y(value) }
+                                            y={ ylen }
                                         >
                                             {formatLabel(value, index)}
                                         </SVGText>
